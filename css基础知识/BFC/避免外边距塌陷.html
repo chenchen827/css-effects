@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFC 避免外边距塌陷</title>
+    <style>
+        .box {
+            background-color: #f0f3f9;
+        }
+
+        .box p {
+            outline: solid deepskyblue;
+            margin: 2em;
+        }
+
+        .flow-root {
+            display: flow-root;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <!-- 该元素的margin直接穿透了外部盒子 -->
+        <p>margin: 2em;</p>
+    </div>
+    <div class="box flow-root">
+        <p>margin: 2em;</p>
+    </div>
+</body>
+
+</html>

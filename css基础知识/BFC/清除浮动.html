@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BFC 清除浮动</title>
+    <style>
+        .container {
+            border: 2px dashed skyblue;
+        }
+
+        .flot {
+            float: left;
+            width: 100px;
+            height: 20px;
+            background-color: orange;
+        }
+
+        .flow-root {
+            /* 清除浮动后， 该标签中的文章不再环绕 浮动的div*/
+            display: flow-root;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="flot"></div>
+        <p>
+            这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段
+        </p>
+    </div>
+
+    <div class="container">
+        <div class="flot"></div>
+        <p class="flow-root">
+            这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段落这是一段很长的段
+        </p>
+    </div>
+</body>
+
+</html>
