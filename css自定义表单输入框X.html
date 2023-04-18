@@ -6,10 +6,43 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>css自定义表单输入框X</title>
+    <style>
+        .box {
+            position: relative;
+            width: 200px;
+        }
+
+        .input {
+            padding-right: 20px;
+        }
+
+        /* :placeholder-shown伪类 与 标签属性placeholder 密切相关。
+           当输入框的placeholder内容显示的时候，匹配该输入框。 
+
+           如下例所示：
+           当<input />中 placeholder属性的"请输入任意内容" 被展示时，:placeholder-shown伪类 生效。
+        */
+        .input:placeholder-shown+.close-icon {
+            display: none;
+        }
+
+        .close-icon {
+            content: "+";
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            font-size: 16px;
+            transform: translateY(-50%) rotate(45deg);
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
-
+    <div class="box">
+        <input type="text" class="input" placeholder="请输入任意内容">
+        <span class="close-icon">+</span>
+    </div>
 </body>
 
 </html>
