@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2D与3D的区别</title>
+    <style>
+        .container {
+            position: relative;
+            width: 200px;
+            margin: 200px auto;
+            /* transform-style: preserve-3d; */
+            transform: perspective(500px);
+            transition: all 1s;
+        }
+
+        .container:hover {
+            transform: rotate3d(1, 1, 1, 180deg);
+        }
+
+        .transform3d-box-one {
+            position: absolute;
+            z-index: 999;
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+        }
+
+        .transform3d-box-two {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background-color: skyblue;
+            transform: translateZ(-200px);
+        }
+    </style>
+</head>
+
+<body>
+    <label>
+        <span>点击切换为：</span>
+        <button id="btn">2D</button>
+    </label>
+    <div class="container">
+        <div class="transform3d-box-one"></div>
+        <div class="transform3d-box-two"></div>
+    </div>
+    <script>
+        const container = document.querySelector('.container');
+        const btn = document.querySelector('#btn');
+        btn.addEventListener('click', () => {
+            if (btn.innerHTML === '2D') {
+                btn.innerHTML = '3D'
+                container.style.WebkitTransformStyle = 'preserve-3d'
+            } else {
+                btn.innerHTML = '2D'
+                container.style.WebkitTransformStyle = ""
+            }
+        })
+    </script>
+</body>
+
+</html>

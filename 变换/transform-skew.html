@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>transform-skew</title>
+    <style>
+        .transform-box {
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            font-size: 12px;
+            background-color: tomato;
+            transition: all 1s;
+        }
+
+        .skew-x:hover {
+            /* 沿x轴扭曲 */
+            transform: skew(20deg)
+        }
+
+        .skew-y:hover {
+            /* 沿y轴扭曲 */
+            transform: skew(0, 20deg)
+        }
+    </style>
+</head>
+
+<body>
+    <div class="transform-box skew-x">transform: skew(20deg)</div>
+    <br>
+    <div class="transform-box skew-y">transform: skew(0, 20deg)</div>
+</body>
+
+</html>
