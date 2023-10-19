@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片转base64预览</title>
+</head>
+
+<body>
+    <input type="file">
+    <br>
+    <img id="preview" src="" alt="">
+    <br>
+    <textarea rows="30" cols="100"></textarea>
+    <button onclick="copy()">cope</button>
+
+    <script>
+        const input = document.querySelector('input')
+        const textarea = document.querySelector('textarea')
+
+        // 图片转换结果
+        let result = ''
+
+        input.onchange = () => {
+            // 获取文件
+            const file = input.files[0];
+
+            // 将文件转为base64
+            const reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = (e) => {
+                result = e.target.result
+                // src除了可以通过 统一资源定位符(url) 定位数据，还可以直接接受 data url
+                preview.src = result
+                textarea.value = result
+            }
+        }
+
+        // result复制到剪贴板
+        const copy = () => {
+            navigator.clipboard.writeText(result).then(
+                () => {
+                    alert('粘贴成功')
+                },
+                () => {
+                    alert('粘贴失败')
+                }
+            );
+
+
+        }
+    </script>
+</body>
+
+</html>
